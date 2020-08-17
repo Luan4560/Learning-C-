@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace myapp
 {
@@ -158,8 +159,46 @@ namespace myapp
             }
         }
 
+        static void ChallengeTwo () 
+        {
+            int soma = 0;
+            for(int index = 1; index <= 20; index++)
+            {
+               if(index % 3 == 0)
+               {
+                   soma = soma + index;
+               }
+            }
+            Console.WriteLine(soma);
+        }   
+
+        static int ChallengeThree (int n) 
+        {   
+            int a = 0;
+            int b = 1;
+
+            for (int i = 0; i < n; i++)
+            {
+                int temporario = a;
+                a = b;
+                b = temporario + b;
+            }
+            return a;
+
+        }
+
+        static void List ()
+        {
+
+        }
+
         static void Main(string[] args)
         {
+            for (int i = 1; i < 21; i++)
+            {
+                System.Console.WriteLine(ChallengeThree(i));
+            }
+
             // WorkingWithIntegers();
 
             // OrderPrecedence();
@@ -178,9 +217,38 @@ namespace myapp
             
             // For (); 
 
-            Matriz ();
+            // Matriz ();
+
+            // ChallengeTwo();
+
+            List<string> galeraDaFila = new List<string>(){
+                "Akira", "Bob", "Dona Bob", "RCTDEV", "NGMASTER", "Gustavo"
+            };
+
+            List<string> galeraDaSegundaFila = new List<string>(){
+                "DevCass", "Malandão", "Chupetinha", "BabaQueEleVem", "SolZinhoNasCostas", "Máchuvinha"
+            };
+
+            foreach(var pessoa in galeraDaFila){
+                // Console.WriteLine(pessoa);
+            }
+
+            galeraDaFila.Add("Chegou, lá vem o negão!");
+             foreach(var pessoa in galeraDaFila){
+                // Console.WriteLine(pessoa);
+            }
 
 
+            galeraDaFila.AddRange(galeraDaSegundaFila);
+            
+             foreach(var pessoa in galeraDaFila){
+                // Console.WriteLine(pessoa);
+            }
+
+            galeraDaFila.Remove("Bob");
+            foreach(var pessoa in galeraDaFila){
+                // Console.WriteLine(pessoa);
+            }
         }
     }
 }
